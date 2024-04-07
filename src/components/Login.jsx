@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
+import './loginstyle.css'
+
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -42,25 +44,36 @@ export default function LoginPage() {
     }
 
     return (
-        <div>
+        <div className="login-container">
+        <div className="input-container">
+           
             <input
                 type="text"
                 placeholder="Логин"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
+        </div>
+        <div className="input-container">
             <input
                 type="password"
                 placeholder="Пароль"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleLogin}>Войти</button>
-            {error && <p>{error}</p>}
-            <Link to="/reg">
+        </div>
+        <button onClick={handleLogin}>Войти</button>
+        {error && <p className="error-message">{error}</p>}
+        <div className="register-link-container">
+            <Link to="/reg" className="register-link">
                 <p>Нет аккаунта? Зарегистрируйтесь</p>
             </Link>
-            
         </div>
+        <div className='americaya'>
+            <h2>AMERICA YA :D</h2>
+            </div>
+    </div>
+    
+    
     );
 }
